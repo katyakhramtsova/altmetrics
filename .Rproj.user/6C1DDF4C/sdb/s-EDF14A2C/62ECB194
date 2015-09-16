@@ -1,0 +1,17 @@
+{
+    "contents" : "# README\n\n9/15/15 Katya Khramtsova\n\nThis directory contains info for **altmetrics** study, _including_:   \n\n* containd data files  \n* scripts\\*  \n* results  \n\nTo view this README, type `cat README.md`\n\n## code blocks\n\n```\ninstall.packages(\"rmarkdown\")\n```\ninsert hyperlinks:\nThe data for this project originally came from [Priem et al 2012](http://arxiv.org/abs/1203.4745).\n\nThe proocessed data files were donloaded 9/15/15, including both [raw count][link1] data and the [normalized data][link2].\n\n[link1]: https://raw.githubusercontent.com/jdblischak/r-intermediate-altmetrics/gh-pages/data/counts-raw.txt.gz\n[link2]: https://raw.githubusercontent.com/jdblischak/r-intermediate-altmetrics/gh-pages/data/counts-norm.txt.gz\n\n",
+    "created" : 1442330767938.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3393243149",
+    "id" : "62ECB194",
+    "lastKnownWriteTime" : 1442331745,
+    "path" : "C:/Users/Ekaterina/altmetrics/altmetrics/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "markdown"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "counts_raw <- read.delim(\"data/counts-raw.txt.gz\")\n#show dimension of the data\ndim(counts_raw)\n#showing first few lines and last few\nhead(counts_raw)\ntail(counts_raw)\n\n#indexing [row,column]\ncounts_raw[1,10]\ncounts_raw[1:3,10:12]\ncounts_raw[1:3, ]\n#refering to column by name\ncounts_raw[1:10, \"pmid\"]\n\n#shows data structure\nstr(counts_raw$daysSincePublished)\n#weeks since publsihed. b/c a vector, it divides all the values in the cells\nhead(counts_raw$daysSincePublished / 7)\n# this will divide first column by 7, the second by 1, 3rd by 7, and so on\nhead(counts_raw$daysSincePublished / C(7,1)\n#data types\nis.numeric(counts_raw$daysSincePublished)\nis.character\n\nstr(counts_raw$journal)\n#these are factors, but stored as numbers. \nlevels(counts_raw$journal)\n# Factor w/ 7 levels \"pbio\",\"pcbi\",..: 1 1 1 1 1 1 1 1 1 1 ..\n# the ones shows that factors \n#when read need to add strings.as.factors=FALSE to read character string\n\n#looking at missing data\ncounts_raw$authorsCount[1:10]\n#shows which data are NA\nis.na(counts_raw$authorsCount[1:10])\n#are there any NA data? \nanyNA(counts_raw$authorsCount[1:10])\n\n#shows stats \nsummary(counts_raw$wosCountThru2011)\nmean(counts_raw$wosCountThru2011)\n#histogram\nhist(counts_raw$wosCountThru2011)\nhist(sqrt(counts_raw$wosCountThru2011))\nplot(counts_raw$daysSincePublished, counts_raw$wosCountThru2011)\n\n#ask certain conditions\ncounts_raw$authorsCount[1:10] > 7\ncounts_raw$authorsCount[1:10] == 7\ncounts_raw$authorsCount[1:10] != 7\n#\"pone\", ] the comma and space tells to list all rows)\ndim(counts_raw[counts_raw$journal == \"pone\", ])\ndim(counts_raw[counts_raw$journal != \"pone\", ])\n\n#asks whether the journal in one of the list\ndim(counts_raw[counts_raw$journal %in% c(\"pone\",\"pbio\", \"pgen\"), ])\n\n#pattern matching with grep\ndim(counts_raw[grepl(\"Immunology\", counts_raw$plosSubjectTags), ])\nhead(counts_raw$plosSubjectTags)\n\n#if statements. this one willdo , if this is true, then\nif (anyNA(counts_raw$authorsCount)) {\n  print(\"NAs here\")  \n} else {\n  print(\"looking good\")\n}\n\nif (anyNA(c(1,1,1))) {\n  print(\"NAs here\")  \n} else {\n  print(\"looking good\")\n}\n\n#levelsas\n\n#loops\nfor (i in 1:10) {\n  print(i)\n}\n\n# it is long to end to add to vector\nx <- numeric()\nfor (i in 1:length(counts_raw$wosCountThru2011)) {\n  x <- c(x, counts_raw$wosCountThru2011[i] + 1)\n}\n\n\nx <- numeric(length = length(counts_raw$wosCountThru2011))\nfor (i in 1:length(counts_raw$wosCountThru2011)) {\n  x[i] <- counts_raw$wosCountThru2011[i] + 1\n}\n\n#shows levels of a factor\nlevels(counts_raw$journal)\nresults <- numeric(length=length(levels(counts_raw$journal)))\nresults\nnames(results)<-levels(counts_raw$journal)\nresults\nresults[\"pone\"]\n\n#count the avg the number of citations for a journal \nfor (j in levels(counts_raw$journal)) {\n  results[j] <- mean(counts_raw$wosCountThru2011[counts_raw$journal == j])\n}\nresults\n",
+    "created" : 1442326922684.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "929047312",
+    "id" : "E5CDD1A6",
+    "lastKnownWriteTime" : 1442336584,
+    "path" : "C:/Users/Ekaterina/altmetrics/altmetrics/R_review.R",
+    "project_path" : "R_review.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
